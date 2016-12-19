@@ -250,11 +250,10 @@ r(function() {
 		help.setAttribute('aria-hidden', 'true');
 		help.setAttribute('aria-live', 'assertive');
 		help.innerHTML = '<div class="wrapper">'
-			+ '<p>If you’re using a mouse:</p>'
+			+ '<p>If you’re using a mouse or a finger:</p>'
 			+ '<ul>'
   		+ '<li>click the checkbox to check</li>'
   		+ '<li>click the label to display details</li>'
-  		+ '<li>click the “Thanks button” if you don’t need SVG, JS or animations</li>'
   		+ '<li>click reset to… reset the checklist</li>'
   		+ '</ul>'
   		+ '<p>If you’re using a keyboard:</p>'
@@ -264,8 +263,8 @@ r(function() {
   		+ '<li>press “space” to display details</li>'
   		+ '<li>press “backspace” to reset the checklist</li>'
   		+ '</ul>'
-  		+ '<p>Don’t worry, your checklist is autosaved: you can close this website, your current checklist will be retrieved when reopened.</p>'	
-  		+ '<p>Finally, you can install this web-app on iOS and Android. And if you’re using Chrome, Firefox or Opera, it will also be available offline.</p>'
+  		+ '<p>Don’t worry, your checklist is autosaved: you can close this page, your current checklist will be retrieved when reopened.</p>'	
+  		+ '<p>Finally, you can install this web app on iOS and Android. And if you’re using Chrome, Firefox or Opera, it will also be available offline.</p>'
   		+ '</div>';
 			
 		howTo.appendChild(help);

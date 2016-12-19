@@ -53,9 +53,9 @@
           	
           	<span class="details-para">Various eBook apps and devices don’t really know how to manage fixed-layout: they either don’t support it at all or don’t provide users with important features like annotations, smart zoom, etc.</span>
           	
-          	<span class="details-para">And please be informed that a lot of eBook resellers (iBooks, Kindle, etc.) have been officially discouraging fixed-layout for text-heavy books in their guidelines. As soon as fixed-layout became available!</span>
+          	<span class="details-para">And please be informed that a lot of eBook resellers (iBooks, Kindle, etc.) have been officially discouraging fixed-layout for text-heavy books in their guidelines. As soon as fixed-layout became available.</span>
           	
-          	<span class="details-para">Oh and by the way, the web came to the conclusion <a href="https://resilientwebdesign.com/chapter3/" title="Resilient Web Design — Chapter 3">fixed-dimensions wasn’t probably the best idea</a> when it comes to screen display, then promoted and invested in responsive design. Finally, mobile <abbr title="Operating Systems">OSes</abbr> introduced the concept of <a href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853-CH7-SW1">Auto Layout</a> to bring responsiveness to apps. This is something you should take into account. <abbr title="As Soon As Possible">ASAP</abbr>.</span>
+          	<span class="details-para">By the way, the web came to the conclusion <a href="https://resilientwebdesign.com/chapter3/" title="Resilient Web Design — Chapter 3">fixed-dimensions wasn’t probably the best idea</a> when it comes to screen display, then promoted and invested in responsive design. Finally, mobile <abbr title="Operating Systems">OSes</abbr> introduced the concept of <a href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853-CH7-SW1">Auto Layout</a> to bring responsiveness to apps. This is something you should take into account. <abbr title="As Soon As Possible">ASAP</abbr>.</span>
         	</span>
         </label>
         
@@ -64,9 +64,9 @@
         	<span class="checker"></span>
         	<span class="summary">Enforce structure</span>
         	<span class="details">
-        		<span class="details-para">It starts with the way contents are lay out, in a logical order –&nbsp;which, for the record, is insanely easy to screw up in authoring apps like InDesign when exporting to fixed-layout so please make sure to double-check that.</span>
+        		<span class="details-para">It starts with the way contents are laid out, in a logical order –&nbsp;which, for the record, is insanely easy to screw up in authoring apps like InDesign when exporting to fixed-layout so please make sure to double-check that.</span>
         		
-        		<span class="details-para">Then it’s all about proper use of <abbr title="HyperText Markup Language">HTML</abbr>5 tags, which will improve any existing divitis, i.e. the process of using too many nested/unnecessary divs to mark up a page.</span>
+        		<span class="details-para">Then it’s all about proper use of <abbr title="HyperText Markup Language">HTML</abbr>5 tags, which will improve over any divitis, i.e. the process of using too many nested/unnecessary divs to mark up a page.</span>
         		
         		<span class="details-para">Finally, <a href="https://www.w3.org/TR/wai-aria/roles">ARIA roles</a> help assistive technology empower users.</span>
         	</span>
@@ -86,9 +86,9 @@
         <label>
         	<input type="checkbox" name="semantics" value="vocab"/>
         	<span class="checker"></span>
-        	<span class="summary">Refine structural semantics using <abbr title="Electronic Publication">EPUB</abbr> vocabulary</span>
+        	<span class="summary">Refine structural semantics using the <abbr title="Electronic Publication">EPUB</abbr> vocabulary</span>
         	<span class="details">
-        		<span class="details-para">While we borrowed <abbr title="HyperText Markup Language">HTML</abbr> from the web, it was firstly meant for webpages. As a consequence, it might not cover all the needs of books.</span>
+        		<span class="details-para">While we borrowed <abbr title="HyperText Markup Language">HTML</abbr> from the web, it was firstly meant for webpages. As a consequence, it might not cover all the needs of book designers.</span>
         		
         		<span class="details-para">Fortunately, <a href="https://idpf.github.io/epub-vocabs/structure/">we’ve got a vocabulary to improve structural semantics</a>; it just takes <code>epub:type</code> attributes to indicate chapters, introductions, bibliographies, table of contents, etc.</span>
         		
@@ -117,6 +117,8 @@
         		<span class="details-para">Because there is nothing worse than providing text as images –&nbsp;extra penalties if text was exported as images because of fonts’ licenses.</span>
         		
         		<span class="details-para">Should you need to go freestyle with text (text on path, complex layouts), then <abbr title="Scalable Vector Graphics">SVG</abbr> will be your best option.</span>
+        		
+        		<span class="details-para">And this applies to tables as well. Sure, they’ve always been problematic in web design and eBooks are no exception, but tables as images should be a last resort, if anything else is impossible (laying out data in another manner for instance).</span>
         	</span>
         </label>
       </div>
@@ -153,7 +155,7 @@
         	<span class="checker"></span>
         	<span class="summary">Don’t force justification</span>
         	<span class="details">
-        		<span class="details-para">User settings again. By now you should be convinced eBook Design is not about laying contents out but building an outstanding User eXperience.</span>
+        		<span class="details-para">User settings again. By now you should be convinced eBook Design is not about laying out contents but building an outstanding User eXperience.</span>
         		
         		<span class="details-para">Besides, some apps or devices might not support hyphens, which means your justified text will look like shit.</span>
         	</span>
@@ -173,11 +175,11 @@
         <label>
         	<input type="checkbox" name="typo" value="reflow"/>
         	<span class="checker"></span>
-        	<span class="summary">Reflow will bite you in the ass</span>
+        	<span class="summary">Ensure reflow will not bite you in the ass</span>
         	<span class="details">
         		<span class="details-para">Did you know the new Kindle format, <abbr title="Kindle Format Ten">KFX</abbr>, adapts drop caps and floating elements based on the font size chosen by users?</span>
         		
-        		<span class="details-para">Now you do! And if Amazon thinks it’s an issue, you should too.</span>
+        		<span class="details-para">Now you do. And if Amazon thinks it’s an issue, you should too. Don’t overdo drop caps, floats, etc. if you can’t make sure they won’t disrupt the reading experience on narrow screens or when a big font size is set.</span>
         	</span>
         </label>
       </div>
@@ -191,9 +193,9 @@
         <label>
         	<input type="checkbox" name="colors" value="grayscale"/>
         	<span class="checker"></span>
-        	<span class="summary">Don’t forget Grayscale</span>
+        	<span class="summary">Don’t forget grayscale</span>
         	<span class="details">
-        		<span class="details-para">Dedicated readers are using eInk, which means colors will be converted to 16 shades of gray. It’s not a bad idea to check if your eBook, especially images, render well in grayscale…</span>
+        		<span class="details-para">Dedicated eReaders are using eInk, which means colors will be converted to 16 shades of gray. It’s not a bad idea to check if your eBook, especially images, render well in grayscale.</span>
         		
         		<span class="details-para">Hopefully, your desktop <abbr title="Operating System">OS</abbr> can help you do that. If you’re using a Mac, for instance, <a href="https://support.apple.com/kb/PH18394?locale=en_US">go to the Display Pane of the Accessibility Preferences</a>.</span>
         	</span>
@@ -230,7 +232,7 @@
         			
         			<span class="details-para">Avoid red/green and red/black combinations, use patterns in addition to colors in charts, beware of text on noisy backgrounds, ensure contrast levels are sufficient, etc.</span> 
         			
-        			<span class="details-para"><a href="https://idpf.github.io/a11y-guidelines/content/style/color.html">The <abbr title="Electronic Publication">EPUB</abbr>&nbsp;3 Accessibility Guidelines</a> are an invaluable resource when it comes to such issues.</span>
+        			<span class="details-para"><a href="https://idpf.github.io/a11y-guidelines/content/style/color.html">Those <abbr title="Electronic Publication">EPUB</abbr>&nbsp;3 Guidelines</a> are an invaluable resource when it comes to accessibility.</span>
         	</span>
         	</label>
         </div>
@@ -244,7 +246,7 @@
         <label>
         	<input type="checkbox" name="images" value="imageMarkup"/>
         	<span class="checker"></span>
-        	<span class="summary">Figure and figcaption go hand in hand</span>
+        	<span class="summary">Use figure and figcaption</span>
         	<span class="details">
         		<span class="details-para">Those two tags are meant for each other and this is why some Reading Systems will treat them in a very special way.</span>
         		
@@ -266,7 +268,7 @@
         <label>
         	<input type="checkbox" name="images" value="relativeImages"/>
         	<span class="checker"></span>
-        	<span class="summary">Use relative units to lay images out</span>
+        	<span class="summary">Use relative units to lay out images</span>
         	<span class="details">
         		<span class="details-para">A lot of Reading Systems don’t ship with default styles for images, which means overflow is very likely to happen. You should at least use <code>max-width:100%</code>.</span>
         		
@@ -317,7 +319,7 @@
         	<span class="details">
         		<span class="details-para">See previous point.</span>
         		        		
-        		<span class="details-para">Also, it may bite you in the ass at some point because you must grow your <abbr title="Cascading Style Sheets">CSS</abbr>.</span>
+        		<span class="details-para">Also, it may bite you in the ass at some point because you must manage the cascade in a constantly growing <abbr title="Cascading Style Sheets">CSS</abbr>.</span>
         	</span>
         </label>
         
@@ -355,14 +357,14 @@
         	<span class="checker"></span>
         	<span class="summary">Try to avoid <code>inline-block</code></span>
         	<span class="details">
-        		<span class="details-para">Contents will be cut-off because pagination. With <code>inline-block</code> comes great responsibility –&nbsp;that’s yet another thing InDesign does badly since it’s used for images’ styling.</span>
+        		<span class="details-para">Contents will be cut off because of pagination. With <code>inline-block</code> comes great responsibility –&nbsp;that’s yet another thing InDesign does badly since it’s used for images’ styling.</span>
         	</span>
         </label>
         
         <label>
         	<input type="checkbox" name="css" value="absolute"/>
         	<span class="checker"></span>
-        	<span class="summary">Beware absolute positioning in reflow</span>
+        	<span class="summary">Beware of absolute positioning in reflow</span>
         	<span class="details">
         		<span class="details-para">It’s stated in the <a title="Content Conformance — EPUB 3.1 Specifications" href="http://www.idpf.org/epub/31/spec/epub-contentdocs.html#sec-css-content-conf">specifications</a>, which tends to prove this may be a critical issue we should fix first.</span>        		
         	</span>
@@ -393,7 +395,7 @@
         	<span class="details">
         		<span class="details-para"><a title="W3C Wiki" href="https://www.w3.org/wiki/Styling_lists_and_links#Styling_Links">Styling links is complex</a>. It’s all the more complex that it can bloat your ebook’s “pages” (visual weight, incorrect manipulation when trying to navigate, etc.).</span>
         		
-        		<span class="details-para">Maybe you could tone them down so that they don’t disrupt the reading process, maybe you could treat them as footnotes if there are too many in your eBook…</span>
+        		<span class="details-para">Maybe you could tone them down so that they don’t disrupt the reading process, maybe you could treat them as footnotes if there are too many in your eBook, etc.</span>
         		
         		<span class="details-para">In any case, make sure users can perceive links as links when scanning the page.</span>
         	</span>
@@ -419,7 +421,7 @@
         	<span class="details">
         		<span class="details-para">It’s currently incompatible with pagination, and this impacts the <code>&lt;details&gt;</code> tag as well.</span>
         		
-        		<span class="details-para">Unfortunately, Reading Systems won’t automatically recompute pagination when collapsing/expanding contents, which means they will overflow at the end of the XHTML file. And there’s not bulletproof way to force recalc…</span>
+        		<span class="details-para">Unfortunately, Reading Systems won’t automatically update pagination when collapsing/expanding contents, which means they will overflow at the end of the XHTML file. And there’s not bulletproof way to force a recalc at the moment.</span>
         	</span>
         </label>
         
@@ -439,20 +441,20 @@
         	<span class="checker"></span>
         	<span class="summary">Ensure your interactions are not bloat</span>
         	<span class="details">
-        		<span class="details-para">There is nothing worse than a useless gimmick which becomes frustrating because it doesn’t add value to the eBook.</span>        		
+        		<span class="details-para">An interaction can turn into a useless gimmick. And that can become frustrating because it doesn’t add value to the eBook but disrupts the reading experience.</span>        		
         	</span>
         </label>
         
         <label>
         	<input type="checkbox" name="interactivity" value="inputs"/>
         	<span class="checker"></span>
-        	<span class="summary">Ensure all inputs are supported</span>
+        	<span class="summary">Ensure your scripts support all inputs</span>
         	<span class="details">
         		<span class="details-para">We’re living in an input-agnostic world, devices can have a touchscreen, a mouse and a keyboard at the same time.</span>
         		
-        		<span class="details-para">You’d better design your scripts for <code>touchend</code>, <code>click</code> and <code>keyup</code>.</span>
+        		<span class="details-para">You’d better design your scripts for <code>touchend</code>, <code>click</code> and <code>keyup</code> (and at some point in the future, you may well have to implement speech recognition as well).</span>
         		
-        		<span class="details-para">And oh by the way, iBooks on MacOS is already private-shaming you with a big fat notification if your eBook doesn’t support keyboard events.</span>
+        		<span class="details-para">By the way, iBooks on MacOS is already private-shaming you with a big fat notification if your eBook only supports touch events.</span>
         	</span>
         </label>
       </div>
@@ -470,7 +472,7 @@
         	<span class="details">
         		<span class="details-para">Building on a solid bedrock is a lot easier than removing parts of a space rocket in-flight. You should design for the lowest common denominator then enhance progressively.</span>
         		
-        		<span class="details-para"><a href="http://www.booknetcanada.ca/blog/2016/12/12/progressive-enhancements-make-books-progressive">We can actually do quite a lot</a> since Reading Systems are build on top of browser’s rendering engines. But then it’s up to you to improve the User eXperience depending on the features those engines support…</span>
+        		<span class="details-para"><a href="http://www.booknetcanada.ca/blog/2016/12/12/progressive-enhancements-make-books-progressive">We can actually do quite a lot</a> since Reading Systems are build on top of browser’s rendering engines. But it’s up to you to improve the User eXperience depending on the features those engines support.</span>
         	</span>
         </label>
         
@@ -481,7 +483,7 @@
         	<span class="details">
         		<span class="details-para">Readers are less likely to read on a 24-inch display than a smartphone, eReader or tablet. Heck, we should probably adopt an eInk-first approach to designing eBooks.</span>
         		
-        		<span class="details-para">And don’t forget some users may boost the font size to 36&nbsp;pt… In other words, by designing for the really small screens first, you’re likely to avoid quite a lot of issues.</span>
+        		<span class="details-para">And don’t forget some users may boost the font size to no less than 36&nbsp;pt. In other words, by designing for the really small screens first, you’re likely to avoid quite a lot of issues.</span>
         	</span>
         </label>
         
@@ -490,7 +492,7 @@
         	<span class="checker"></span>
         	<span class="summary">Leverage feature queries (<code>@supports</code>)</span>
         	<span class="details">
-        		<span class="details-para"><code>@supports</code> is a <a href="https://hacks.mozilla.org/2016/08/using-feature-queries-in-css/">powerful tool</a> which allows you to test for a CSS support. If the property and value you test is supported then styles in the feature query will be applied. Else, they will be ignored –&nbsp;and it doesn’t crash the old <abbr title="Reader Mobile Software Development Kit">RMSDK</abbr>!</span>
+        		<span class="details-para"><code>@supports</code> is a <a href="https://hacks.mozilla.org/2016/08/using-feature-queries-in-css/">powerful tool</a> which allows you to test for CSS support. If the property and value you test is supported then styles in the feature query will be applied. Else, they will be ignored –&nbsp;and it doesn’t crash the old <abbr title="Reader Mobile Software Development Kit">RMSDK</abbr>.</span>
         		
         		<span class="details-para">By leveraging feature queries, you can use all the modern CSS specs and be sure they won’t impact Reading Systems which dont support them. This is the super easy way to do progressive enhancement.</span>
         	</span>
@@ -503,7 +505,7 @@
         	<span class="details">
         		<span class="details-para"><a href="https://github.com/dvschultz/99problems/issues/44">Empty <code>@amzn-*</code> media queries crash the old <abbr title="Reader Mobile Software Development Kit">RMSDK</abbr></a>.</span>
         		
-        		<span class="details-para"><a href="https://medium.com/@jiminypan/the-missing-eprdctn-specs-fcdc78038a90#.ly3zukc4t">Some Reading Systems report corrupted viewports</a> (either because of pagination implementation or use of CSS columns to fake a spread)…</span>
+        		<span class="details-para"><a href="https://medium.com/@jiminypan/the-missing-eprdctn-specs-fcdc78038a90#.ly3zukc4t">Some Reading Systems report corrupted viewports</a> (either because of pagination implementation or use of CSS columns to fake a spread).</span>
         		
         		<span class="details-para">There is no love for media queries in eBooks right now and their use should probably be discouraged.</span>
         	</span>
@@ -518,7 +520,7 @@
         		
         		<span class="details-para">Devices constantly ship in different form factors, display resolutions, viewport dimensions, etc. It’s just impossible to keep up in the long term.</span>
         		
-        		<span class="details-para">Besides, what might work for iBooks iOS in landscape already backfires in a lot of other iOS apps… Same for iPhone, etc.</span>
+        		<span class="details-para">Besides, what might work for iBooks iOS in landscape already backfires in a lot of other iOS apps. Same for iPhone, etc.</span>
         	</span>
         </label>
       </div>
@@ -536,7 +538,7 @@
         	<span class="details">
         		<span class="details-para">It’s the easiest way to make sure your eBook’s structure is bulletproof.</span>
         		
-        		<span class="details-para">And quite sadly, millions of digital readers are using them…</span>
+        		<span class="details-para">And quite sadly, millions of digital readers are using them….</span>
         	</span>
         </label>
         
@@ -545,7 +547,7 @@
         	<span class="checker"></span>
         	<span class="summary">Change user settings to make sure everything is OK</span>
         	<span class="details">
-        		<span class="details-para">Should be obvious by now…</span>        		
+        		<span class="details-para">Should be obvious by now.</span>        		
         	</span>
         </label>
         
@@ -556,7 +558,7 @@
         	<span class="details">
         		<span class="details-para">Have you ever wondered why some vendors open the eBook to the first chapter? Because readers gonna read.</span>
         		
-        		<span class="details-para">Move front-matter to back-matter whenever possible. And in any case, don’t force the eBook to open before ten pages of front-matter readers don’t want to read.</span>
+        		<span class="details-para">Move front matter to back matter whenever possible. And in any case, don’t force the eBook to open before ten pages of front matter readers don’t want to read.</span>
         	</span>
         </label>
      
@@ -602,7 +604,7 @@
   </main>
 
   <footer>
-  	<p class="secondary">Version 0.41 (codename “<abbr title="Minimum Viable Product">MVP</abbr>”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
+  	<p class="secondary">Version 0.42 (codename “<abbr title="Minimum Valuable Product">MVP</abbr>”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
     <p class="secondary">This tool is part of the <a href="https://github.com/FriendsOfEpub/Blitz">Blitz eBook Framework</a></p>
   </footer>
   

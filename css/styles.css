@@ -276,11 +276,12 @@ p {}
 }
 
 .help-content ul li {
-	margin-left: 1em;
+	margin-left: 1.5em;
+	text-indent: -0.65em;
 }
 
 .help-content ul li:before {
-	content: "×";
+	content: "+";
 	position: relative;
 	left: -0.5em;
 }
