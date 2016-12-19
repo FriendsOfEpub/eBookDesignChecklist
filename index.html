@@ -406,7 +406,7 @@
         	<span class="checker"></span>
         	<span class="summary">Don’t hide pop-up footnotes</span>
         	<span class="details">
-        		<span class="details-para">A long long time ago, in an iBooks.app far far away, the pattern of pop-up footnotes was introduced to eBook Designers. <a title="iBooks Asset Guide" href="https://help.apple.com/itc/booksassetguide/e3?lang=en#/itccf8ecf5c8">And then we discovered</a> we could use <code>&lt;aside&gt;</code> to hide the footnote or <code>&lt;div&gt;</code> to show the footnote in the normal reading view.</span>
+        		<span class="details-para">A long long time ago, in an iBooks.app far far away, the pattern of pop-up footnotes was introduced to eBook Designers. <a title="iBooks Asset Guide" href="https://help.apple.com/itc/booksassetguide/e3?lang=en#/itccf8ecf5c8">And then we discovered</a> we could use <code>&lt;aside&gt;</code> to hide or <code>&lt;div&gt;</code> to show the footnote in the normal reading view.</span>
         		
         		<span class="details-para">Turns out the footnote is not accessible to assistive technology when hidden… so you’d better keep it in the normal reading view using <code>&lt;div&gt;</code> or <code>&lt;p&gt;</code>.</span>
         		
@@ -452,9 +452,22 @@
         	<span class="details">
         		<span class="details-para">We’re living in an input-agnostic world, devices can have a touchscreen, a mouse and a keyboard at the same time.</span>
         		
-        		<span class="details-para">You’d better design your scripts for <code>touchend</code>, <code>click</code> and <code>keyup</code> (and at some point in the future, you may well have to implement speech recognition as well).</span>
+        		<span class="details-para">You’d better design your scripts for <code>touchend</code>, <code>click</code> and <code>keyup</code> (and you may soon have to implement speech recognition as well).</span>
         		
         		<span class="details-para">By the way, iBooks on MacOS is already private-shaming you with a big fat notification if your eBook only supports touch events.</span>
+        	</span>
+        </label>
+        
+        <label>
+        	<input type="checkbox" name="interactivity" value="usability"/>
+        	<span class="checker"></span>
+        	<span class="summary">Make your scripts accessible</span>
+        	<span class="details">
+        		<span class="details-para">It’s all about how you design scripts. Check <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">ARIA Authoring practices</a> for details.</span>
+        		
+        		<span class="details-para">Please make sure you’re using the correct element for the job. If you need a button, create a <code>button</code> element, not a <code>span</code>. A button ships with accessibility: it is focusable, actionable, etc.</span>
+        		
+        		<span class="details-para">Then implement ARIA attributes: <code>aria-label</code>, <code>aria-hidden</code>, <code>aria-live</code>, <code>role</code> &amp;&nbsp;al. can dramatically enhance the usability of your widgets.</span>
         	</span>
         </label>
       </div>
@@ -472,7 +485,7 @@
         	<span class="details">
         		<span class="details-para">Building on a solid bedrock is a lot easier than removing parts of a space rocket in-flight. You should design for the lowest common denominator then enhance progressively.</span>
         		
-        		<span class="details-para"><a href="http://www.booknetcanada.ca/blog/2016/12/12/progressive-enhancements-make-books-progressive">We can actually do quite a lot</a> since Reading Systems are build on top of browser’s rendering engines. But it’s up to you to improve the User eXperience depending on the features those engines support.</span>
+        		<span class="details-para"><a href="http://www.booknetcanada.ca/blog/2016/12/12/progressive-enhancements-make-books-progressive">We can actually do quite a lot</a> since Reading Systems are build on top of browsers’ rendering engines. But it’s up to you to improve the User eXperience depending on the features those engines support.</span>
         	</span>
         </label>
         
@@ -591,7 +604,7 @@
         	<span class="details">
         		<span class="details-para">Ideas sometimes turn pretty badly into reality. If you don’t do user testing, you will discover that once it’s too late.</span>
         		
-        		<span class="details-para">If you’re trying to improve User eXperience with functional interactions or useful features, you should get feedback as soon as the prototype is built. This is how design works, eBooks are not  snowflakes.</span>
+        		<span class="details-para">If you’re trying to improve User eXperience with functional interactions or extra features, you should get feedback as soon as the prototype is built. This is how design works, eBooks are not  snowflakes.</span>
         	</span>
         </label>
       </div>
@@ -604,7 +617,7 @@
   </main>
 
   <footer>
-  	<p class="secondary">Version 0.42 (codename “<abbr title="Minimum Valuable Product">MVP</abbr>”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
+  	<p class="secondary">Version 0.50 (codename “<abbr title="Minimum Valuable Product">MVP</abbr>”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
     <p class="secondary">This tool is part of the <a href="https://github.com/FriendsOfEpub/Blitz">Blitz eBook Framework</a></p>
   </footer>
   
@@ -612,6 +625,11 @@
   <script type="text/javascript">
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/eBookDesignChecklist/sw.js', {scope: '/eBookDesignChecklist/'})
+  }  else if ('applicationCache' in window) {
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('src', '/eBookDesignChecklist/appcache.html');
+    iframe.setAttribute('style', 'width: 0; height: 0; border: 0');
+    document.querySelector('footer').appendChild(iframe);
   }
   </script>
 </body>

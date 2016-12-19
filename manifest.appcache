@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# v0.50
+
+CACHE:
+/eBookDesignChecklist/
+/eBookDesignChecklist/css/styles.css
+/eBookDesignChecklist/js/script.js
+/eBookDesignChecklist/assets/blitz-16.svg
+/eBookDesignChecklist/assets/blitzDesign-decorations.svg
+/eBookDesignChecklist/favicon.ico
+
+NETWORK:
+*
