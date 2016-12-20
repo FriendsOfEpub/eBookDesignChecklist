@@ -1,0 +1,105 @@
+@page {
+  margin: 12pt;
+  size: portrait;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+  
+* {
+  background: none !important;
+  color: #222 !important;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+.header-icon,
+.lead,
+.details,
+.js-enabled .summary:after,
+.js-enabled .summary.open:after,
+footer,
+button,
+#how-to,
+#controls {
+  display: none;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 16pt;
+  text-align: left;
+  position: absolute;
+  top: -16pt;
+  right: 0;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  display: inline-block;							
+}
+
+h1:after {
+  content: ' (a blitz eBook framework tool)';
+  font-size: 10pt;
+  display: block;
+  opacity: 0.4;
+  text-align: right;
+}
+
+h2 {
+  font-size: 12pt;
+  text-align: left;
+  margin: 0 0 10pt 0;
+}
+
+h2:before {
+  display: inline-block;
+  margin: 0 2pt 0 -7pt;
+  opacity: 0.2;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+form section {
+  margin: 20pt 0 0 0;
+  padding: 0 10pt;
+  box-sizing: border-box;
+  position: relative;
+  page-break-inside: avoid;
+}
+
+form section:first-child {
+  margin: 0;
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+  
+label {
+  margin: 10pt 0 0 0;
+  padding-left: 20pt;
+  font-size: 10pt;
+  line-height: 1.2;
+}
+  
+.checker {
+  width: 12pt;
+  height: 12pt;
+  border: 1pt solid currentColor;
+  border-radius: 0;
+}
+
+input:checked + .checker {
+  background-color: none !important;
+}
