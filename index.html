@@ -88,13 +88,13 @@
         <label>
         	<input type="checkbox" name="semantics" value="vocab"/>
         	<span class="checker"></span>
-        	<span class="summary">Refine structural semantics using the <abbr title="Electronic Publication">EPUB</abbr> vocabulary</span>
+        	<span class="summary">Refine structural semantics using the <abbr title="Electronic Publication">EPUB</abbr> and DPUB-ARIA vocabularies</span>
         	<span class="details">
         		<span class="details-para">While we borrowed <abbr title="HyperText Markup Language">HTML</abbr> from the web, it was firstly meant for webpages. As a consequence, it might not cover all the needs of book designers.</span>
         		
         		<span class="details-para">Fortunately, <a href="https://idpf.github.io/epub-vocabs/structure/">we’ve got a vocabulary to improve structural semantics</a>; it just takes <code>epub:type</code> attributes to indicate chapters, introductions, bibliographies, table of contents, etc.</span>
         		
-        		<span class="details-para">And this could even lead to <a href="https://www.w3.org/TR/dpub-aria-1.0/">digital publishing roles</a> in ARIA.</span>
+        		<span class="details-para">And while you’re at it, you can also add ARIA’s <a href="https://www.w3.org/TR/dpub-aria-1.0/">digital publishing roles</a>, since they are already implemented in some browsers, and apps automatically benefit from it if they’re using a web view.</span>
         	</span>
         </label>
         
@@ -471,6 +471,19 @@
         		
         		<span class="details-para">Then implement ARIA attributes: <code>aria-label</code>, <code>aria-hidden</code>, <code>aria-live</code>, <code>role</code> &amp;&nbsp;al. can dramatically enhance the usability of your widgets.</span>
         	</span>
+				</label>
+				
+				<label>
+        	<input type="checkbox" name="interactivity" value="webstorage"/>
+        	<span class="checker"></span>
+        	<span class="summary">Prefix your storage items, and do not ever clear Web storage</span>
+        	<span class="details">
+        		<span class="details-para">In theory, <a title="Scripted Content Security — EPUB 3.1 Specifications" href="http://www.idpf.org/epub/31/spec/epub-contentdocs.html#sec-scripted-content-security">if you take a look at the EPUB specifications</a>, “Reading Systems that do allow data to be stored have to ensure that it is not made available to other unrelated documents.”</span>
+        		
+        		<span class="details-para">In practice, it is not the case in a lot of apps, which means you will share storage with all other publications. In other words, should you use <code>localStorage.clear()</code> to remove all the items you’ve set, it will just clear the storage for all EPUB files, and other developers won’t be able to retrieve theirs.</span>
+        		
+        		<span class="details-para">It’s also important you prefix the items you set – ideally use one prefix per publication –, in order to avoid concurrent access to same-name items. By doing this, you’ll also be able to get and remove those items, since <code>localStorage.clear()</code> is a no-go.</span>
+        	</span>
         </label>
       </div>
       </section>
@@ -619,7 +632,7 @@
   </main>
 
   <footer>
-  	<p class="secondary">Version 0.51 (codename “<abbr title="Work In Progress">WIP</abbr>”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
+  	<p class="secondary">Version 0.52 (codename “Lazy Lasagna”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
     <p class="secondary">This tool is part of the <a href="https://github.com/FriendsOfEpub/Blitz">Blitz eBook Framework</a></p>
   </footer>
   
