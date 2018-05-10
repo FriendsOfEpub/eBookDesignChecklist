@@ -19,7 +19,9 @@ r(function() {
 			checked = 0,
 			progress = 0;
 			
-	var isFirefox = false;
+	var isFirefox = false,
+			isChrome = false,
+			isEdge = false;
 	
 	// POLYFILLS
 	
@@ -139,7 +141,7 @@ r(function() {
 	};
 
 	function scrollTop() {
-	  if (isFirefox) {
+	  if (isFirefox && !isEdge || isChrome && !isEdge) {
     	scrollTo(document.getElementsByTagName('html')[0], form.offsetTop, 600);
 		} else {
 			scrollTo(document.body, form.offsetTop, 600);
@@ -195,6 +197,18 @@ r(function() {
 	(function checkFirefox() {
 		if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
 			isFirefox = true;
+		}
+	})();
+
+	(function checkChrome() {
+		if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+			isChrome = true;
+		}
+	})();
+
+	(function checkEdge() {
+		if (navigator.userAgent.toLowerCase().indexOf('edge') > -1) {
+			isEdge = true;
 		}
 	})();
 		
