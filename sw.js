@@ -1,7 +1,7 @@
 /* https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e */
 
 var APP_PREFIX = 'blitzDesign_'
-var VERSION = 'v0_53'
+var VERSION = 'v0_54'
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [
   '/eBookDesignChecklist/',
