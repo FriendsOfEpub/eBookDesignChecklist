@@ -122,6 +122,17 @@
         		
         		<span class="details-para">And this applies to tables as well. Sure, they’ve always been problematic in web design and eBooks are no exception, but tables as images should be a last resort, if anything else is impossible (laying out data in another manner for instance).</span>
         	</span>
+				</label>
+				
+				<label>
+        	<input type="checkbox" name="semantics" value="lang"/>
+        	<span class="checker"></span>
+        	<span class="summary">Declare language on the <code>html</code> and <code>body</code> tags</span>
+        	<span class="details">
+        		<span class="details-para">If it is not declared, that will impact hyphenation and text-to-speech (<a href="http://kb.daisy.org/publishing/docs/html/lang.html">source</a>).</span>
+        		        		
+        		<span class="details-para">You’d better declare it on <code>body</code> too so that the proper language is used—it depends on how <abbr title="Reading Systems">RS</abbr> inject contents in their <abbr title="User Interface">UI</abbr>.</span>
+        	</span>
         </label>
       </div>
       </section>
@@ -632,7 +643,7 @@
   </main>
 
   <footer>
-  	<p class="secondary">Version 0.54 (codename “Naked Gnocchi”)<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
+  	<p class="secondary">Version 1.0<br/><a href="https://github.com/FriendsOfEpub/eBookDesignChecklist/blob/master/LICENSE">LGPLv3 Licence</a> | <a href="https://github.com/FriendsOfEpub/eBookDesignChecklist">Source</a></p>
     <p class="secondary">This tool is part of the <a href="https://github.com/FriendsOfEpub/Blitz">Blitz eBook Framework</a></p>
   </footer>
   
