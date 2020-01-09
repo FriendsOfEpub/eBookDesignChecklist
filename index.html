@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BlitzChecklist — My Checklist App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Small description of my app for SEO">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+  <style type="text/css">
+    .details-para {display: block;}
+  </style>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <!-- Google -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#222222">
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="BlitzChecklist">
+  <link rel="apple-touch-icon" href="assets/icons/icon-256x256.png">
+  <!-- MS -->
+  <meta name="msapplication-TileImage" content="assets/icons/icon-256x256.png">
+  <meta name="msapplication-TileColor" content="#222222">
+  <meta name="application-name" content="BlitzChecklist">
+</head>
+<body>
+  <header>
+    <img class="header-icon" alt="BlitzChecklist" src="assets/logo.svg"/>
+    <h1>My Checklist App</h1>
+    <p class="lead">My lead/longer description for the introduction.</p>
+  </header>
+  <main>
+    <form id="checklist" name="checklist">
+      <section id="category1-list" data-skippable="false">
+        <div class="wrapper">
+          <h2 id="category1-heading">Section 1</h2>
+          <label>
+            <input type="checkbox" name="category1" value="test"/>
+            <span class="checker"></span>
+            <span class="summary">Click to test details</span>
+            <span class="details">
+              <span class="details-para">Here are some details.</span>   
+            </span>
+          </label>
+        </div>
+      </section>
+      <section id="category2-list" data-skippable="true">
+        <div class="wrapper">
+          <h2 id="category2-heading">Section 2 (skippable)</h2>
+          <label>
+            <input type="checkbox" name="category2" value="another"/>
+            <span class="checker"></span>
+            <span class="summary">Click one more time</span>
+            <span class="details">
+              <span class="details-para">Here are some details.</span>   
+              <span class="details-para">And here are others.</span>   
+            </span>
+          </label>
+        </div>
+      </section>
+      <div id="controls">
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+  </main>
+  <footer>
+    <p class="secondary">Version 1.0.0</p>
+    <p class="secondary">This tool is part of the <a href='http://friendsofepub.github.io/Blitz/'>Blitz Framework.</a></p>
+  </footer>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript">
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register("/blitz-checklist/sw.js", {scope: "/blitz-checklist/"})
+    }
+  </script>
+</body>
+</html>

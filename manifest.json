@@ -1,0 +1,22 @@
+{
+  "name": "Blitz Checklist",
+  "short_name": "BlitzChecklist",
+  "icons": [
+    {
+      "src": "assets/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/blitz-checklist/",
+  "display": "standalone",
+  "background_color": "#222222",
+  "theme_color": "#222222"
+}

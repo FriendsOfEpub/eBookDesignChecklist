@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <title>{{appName}} — {{header.title}}</title>
+  <meta charset="utf-8">
+  <meta name="description" content="{{appDesc}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+  <style type="text/css">
+    .details-para {display: block;}
+  </style>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <!-- Google -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="{{accentColor}}">
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="{{appName}}">
+  <link rel="apple-touch-icon" href="assets/icons/icon-256x256.png">
+  <!-- MS -->
+  <meta name="msapplication-TileImage" content="assets/icons/icon-256x256.png">
+  <meta name="msapplication-TileColor" content="{{accentColor}}">
+  <meta name="application-name" content="{{appName}}">
+</head>
+<body>
+  <header>
+  {{#header}}
+    {{#appLogo}}
+    <img class="header-icon" alt="{{appName}}" src="{{&appLogo}}"/>
+    {{/appLogo}}
+    <h1>{{&title}}</h1>
+    {{#lead}}
+    <p class="lead">{{&.}}</p>
+    {{/lead}}
+  {{/header}}
+  </header>
+  <main>
+    <form id="checklist" name="checklist">
+      {{#sections}}
+      <section id="{{name}}-list" data-skippable="{{skippable}}">
+        <div class="wrapper">
+          <h2 id="{{name}}-heading">{{&heading}}</h2>
+          {{#rules}}
+          <label>
+            <input type="checkbox" name="{{name}}" value="{{value}}"/>
+            <span class="checker"></span>
+            <span class="summary">{{&summary}}</span>
+            <span class="details">
+              {{#details}}
+              <span class="details-para">{{&.}}</span>   
+              {{/details}}
+              {{^details}}
+              <span class="details-para">No details available :(</span> 
+              {{/details}}
+            </span>
+          </label>
+          {{/rules}}
+        </div>
+      </section>
+      {{/sections}}
+      <div id="controls">
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+  </main>
+  <footer>
+    <p class="secondary">Version {{appVersion}}</p>
+    {{#footer}}
+    <p class="secondary">{{&.}}</p>
+    {{/footer}}
+  </footer>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript">
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register("{{&appScope}}sw.js", {scope: "{{&appScope}}"})
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "appName": "BlitzChecklist",
+  "appVersion": "1.0.0",
+  "appDesc": "Small description of my app for SEO",
+  "appLogo": "assets/logo.svg",
+  "appScope": "/blitz-checklist/",
+  "lang": "en",
+  "accentColor": "#222222",
+  "header": {
+    "title": "My Checklist App",
+    "lead": [
+      "My lead/longer description for the introduction."
+    ]
+  },
+  "sections": [
+    {
+      "name": "category1",
+      "skippable": false,
+      "heading": "Section 1",
+      "rules": [
+        {
+          "value": "test",
+          "summary": "Click to test details",
+          "details": [
+            "Here are some details."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "category2",
+      "skippable": true,
+      "heading": "Section 2 (skippable)",
+      "rules": [
+        {
+          "value": "another",
+          "summary": "Click one more time",
+          "details": [
+            "Here are some details.",
+            "And here are others."
+          ]
+        }
+      ]
+    }
+  ],
+  "footer": [
+    "This tool is part of the <a href='http://friendsofepub.github.io/Blitz/'>Blitz Framework.</a>"
+  ]
+}
