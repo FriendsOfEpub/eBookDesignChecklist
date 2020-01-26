@@ -125,7 +125,7 @@ Some values in `manifest.json`, `data.json`, `sw.js` and `script.js` should matc
 | start_url        | appScope       | SCOPE      | N/A            |
 | background_color | accentColor    | N/A        | N/A            |
 | theme_color      | accentColor    | N/A        | N/A            |
-| N/A              | footer.version | VERSION    | N/A            |
+| N/A              | appVersion     | VERSION    | N/A            |
 | N/A              | N/A            | APP_PREFIX | STORAGE_PREFIX |
 
 ## Create a Checklist
