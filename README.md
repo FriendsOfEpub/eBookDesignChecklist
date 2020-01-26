@@ -177,7 +177,7 @@ The `header` property expects an object:
 
 The `title` will be used for the `h1` of the webpage.
 
-The `lead` property expects an array of strings. It serves as a description of the web app. For each value in the array, a new paragraph will be created in the details. It accepts either raw text or HTML. If empty, only the title will be rendered.
+The `lead` property expects an array of strings. It serves as a description of the web app. For each item in the array, a new paragraph will be created. It accepts either raw text or HTML. If empty, only the title will be rendered.
 
 Note the values of `title` and `lead` can be raw text or HTML.
 
