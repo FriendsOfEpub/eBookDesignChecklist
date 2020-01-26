@@ -138,7 +138,7 @@ The `appName` property expects a string. This will be used in the `title` of the
 
 ### appVersion
 
-The `appVersion` SHOULD match the value of the `VERSION` variable in both `src/script.js` and `sw.js`. It will be displayed in the footer of the app.
+The `appVersion` SHOULD match the value of the `VERSION` variable in `sw.js`. It will be displayed in the footer of the app. Ideally, `package.json`’s `version` should match as well. 
 
 ### appDesc
 
