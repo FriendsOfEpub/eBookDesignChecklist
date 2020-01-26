@@ -52,10 +52,10 @@ Then fetch when you want to update the changes:
 git fetch --all
 ```
 
-Then to merge the changes in the template, try:
+Then to merge the changes from the template, checkout to the branch you want to update and try:
 
 ```
-git merge template/[branch to merge] --allow-unrelated-histories
+git merge template/master --allow-unrelated-histories
 ```
 
 Yet expect to resolve some conflicts for the merge to go through, as the 2 repos have unrelated histories.
