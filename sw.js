@@ -1,20 +1,21 @@
 /* https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e */
 
-var APP_PREFIX = 'blitzDesign_'
-var VERSION = 'v1_0_4'
-var CACHE_NAME = APP_PREFIX + VERSION
+var APP_PREFIX = "blitzDesign_";
+var SCOPE = "/eBookDesignChecklist/";
+var VERSION = "v2_0_0";
+var CACHE_NAME = APP_PREFIX + VERSION;
 var URLS = [
-  '/eBookDesignChecklist/',
-  '/eBookDesignChecklist/index.html',
-  '/eBookDesignChecklist/assets/blitz-16.svg',
-  '/eBookDesignChecklist/assets/blitzDesign-decorations.svg',
-  '/eBookDesignChecklist/css/styles.css',
-  '/eBookDesignChecklist/js/script.js'
+  SCOPE,
+  SCOPE + "index.html",
+  SCOPE + "assets/logo.svg",
+  SCOPE + "assets/blitzDesign-decorations.svg",
+  SCOPE + "css/styles.css",
+  SCOPE + "js/script.js"
 ]
 
 // Respond with cached resources
-self.addEventListener('fetch', function (e) {
-  console.log('fetch request : ' + e.request.url)
+self.addEventListener("fetch", function (e) {
+  console.log("fetch request: " + e.request.url)
   e.respondWith(
     caches.match(e.request).then(function (request) {
       return request || fetch(e.request)
@@ -23,17 +24,17 @@ self.addEventListener('fetch', function (e) {
 })
 
 // Cache resources
-self.addEventListener('install', function (e) {
+self.addEventListener("install", function (e) {
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      console.log('installing cache : ' + CACHE_NAME)
+      console.log("installing cache: " + CACHE_NAME)
       return cache.addAll(URLS)
     })
   )
 })
 
 // Delete outdated caches
-self.addEventListener('activate', function (e) {
+self.addEventListener("activate", function (e) {
   e.waitUntil(
     caches.keys().then(function (keyList) {
       var cacheWhitelist = keyList.filter(function (key) {
@@ -43,7 +44,7 @@ self.addEventListener('activate', function (e) {
 
       return Promise.all(keyList.map(function (key, i) {
         if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i] )
+          console.log("deleting cache: " + keyList[i] )
           return caches.delete(keyList[i])
         }
       }))
