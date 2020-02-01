@@ -31,7 +31,7 @@ Thanks to service workers, it will even work offline on Android, Chrome, Opera o
 
 The eBook Design Checklist is part of the Blitz Project. It’s a progressive web app which aim is to help you design your eBooks.
 
-It is currently in v.2.0.0 and available [on this page](https://friendsofepub.github.io/eBookDesignChecklist/).
+It is currently in v.2.0.1 and available [on this page](https://friendsofepub.github.io/eBookDesignChecklist/).
 
 ## Details
 
