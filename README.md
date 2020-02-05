@@ -245,9 +245,13 @@ With Mustache, data is now separated from markup. And it’s a lot easier to mod
 
 Finally it’s available on a large amount of different platforms, so should make it easier to use the data in a non-web context.
 
-### Can I keep using v1 of BlitzOptim and BlitzDesign?
+### Can I author HTML instead of JSON?
 
-Yes, absolutely. 
+Absolutely.
+
+We’ve designed this template in a way that makes `data.json` entirely optional. As long as you follow the templating rules in `index.html`, everything should be fine.
+
+### Can I keep using v1 of BlitzOptim and BlitzDesign?
 
 If you don’t want to migrate to Mustache and are more comfortable with the idea of manually maintaining the checklist, then you can use the `v.1.0.4` tag in your fork. 
 
