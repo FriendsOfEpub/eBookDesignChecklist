@@ -78,8 +78,8 @@ In `css` you will find a global stylesheet, and one specific to print – users 
 
 Note the `name` you are using for sections in `data.json` is used extensively if you want to add section-specific styles:
 
-- the section’s `id` has a `-list` prefix e.g. if the `name` has the value of `css` then the `id` is `css-list`;
-- its heading’s `id` (`h2`) has a `-heading` prefix e.g. `css-heading`.
+- the section’s `id` has a `-list` suffix e.g. if the `name` has the value of `css` then the `id` is `css-list`;
+- its heading’s `id` (`h2`) has a `-heading` suffix e.g. `css-heading`.
 
 In addition, the `name` attribute of the section’s `inputs` use this value.
 
