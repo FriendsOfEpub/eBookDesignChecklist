@@ -6,17 +6,18 @@ r(function () {
   var HELP_TEXT = `<div class='wrapper'>
     <p>If you’re using a mouse or a finger:</p>
     <ul>
-      <li>click the checkbox to check;</li>
+      <li>click the “Expand/Collapse button” to toggle all details;</li>
       <li>click the label to display details;</li>
+      <li>click the checkbox to check;</li>
       <li>click the “Skip Section” button if the section doesn’t apply;</li>
-      <li>click reset to… reset the checklist;</li>
+      <li>click reset to… reset the checklist.</li>
     </ul>
     <p>If you’re using a keyboard:</p>
     <ul>
       <li>press “tab” to navigate items;</li>
       <li>press “enter” to check;</li>
       <li>press “space” to display details;</li>
-      <li>press “esc” to reset the checklist;</li>
+      <li>press “esc” to reset the checklist.</li>
     </ul>
     <p>Don’t worry, your checklist is autosaved: you can close this page, your current checklist will be retrieved when reopened.</p>
     <p>Finally, this is a Progressive Web App you can install on platforms and browsers which support it. It will even work offline if Service Workers are supported.</p>
@@ -31,6 +32,9 @@ r(function () {
   var howTo = document.createElement("section");
   var helper = document.createElement("button");
   var help = document.createElement("div");
+
+  var header = document.querySelector("header");
+  var toggle = document.createElement("button");
 
   var skippable = document.querySelectorAll("[data-skippable='true']");
 
@@ -264,6 +268,14 @@ r(function () {
     document.body.insertBefore(howTo, document.querySelector("main"));
   })();
 
+  (function initToggle() {
+		toggle.type = "button";
+		toggle.id = "toggle";
+		toggle.className = "checkAll";
+		toggle.innerHTML = "Expand all details";
+		header.appendChild(toggle);
+	})();
+
   // Event Listeners 
 
   mediaQuery.addListener(changeMotionHook);
@@ -347,5 +359,27 @@ r(function () {
       return;
     }
   };
+
+  toggle.addEventListener("click", function (e) {
+		e.preventDefault();
+		this.classList.toggle("toggleActive");
+		if (this.classList.contains("toggleActive")) {
+			this.innerHTML = "Collapse all details";
+			for (var i = 0; i < details.length; i++) {
+				var detail = details[i];
+				detail.classList.remove("hidden");
+				detail.previousElementSibling.classList.add("open");
+				detail.setAttribute("aria-hidden", "false");
+			};
+		} else {
+			this.innerHTML = "Expand all details";
+			for (var i = 0; i < details.length; i++) {
+				var detail = details[i];
+				detail.classList.add("hidden");
+				detail.previousElementSibling.classList.remove("open");
+				detail.setAttribute("aria-hidden", "true");
+			};
+		};
+	});
 });
 function r(f) { /in/.test(document.readyState) ? setTimeout('r(' + f + ')', 9) : f() }
