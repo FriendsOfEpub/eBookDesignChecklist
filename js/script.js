@@ -131,6 +131,19 @@ r(function () {
   };
 
   function toggleHelp() {
+    if (helper.classList.contains("open")) {
+      helper.innerHTML = "?";
+      helper.setAttribute("aria-label", "Help");
+      helper.setAttribute("title", "Help");
+      document.body.style.overflow = "auto";
+    } else {
+      helper.innerHTML = "×";
+      helper.setAttribute("aria-label", "Close help");
+      helper.setAttribute("title", "Close help");
+      helper.focus();
+      document.body.style.overflow = "hidden";
+    }
+    helper.classList.toggle("open");
     help.classList.toggle("hidden");
     toggleAria(help);
   };
@@ -214,6 +227,45 @@ r(function () {
     };
   })();
 
+  (function initHelp() {
+    howTo.id = "how-to";
+
+    helper.type = "button";
+    helper.className = "helper";
+    helper.id = "helper";
+    helper.innerHTML = "?";
+    helper.setAttribute("aria-label", "Help");
+    helper.setAttribute("title", "Help");
+    helper.setAttribute("aria-haspopup", "help");
+    helper.setAttribute("aria-controls", "help");
+
+    help.classList.add("help-content", "hidden");
+    help.id = "help";
+    help.setAttribute("role", "dialog");
+    help.setAttribute("aria-modal", "true");
+    help.setAttribute("aria-hidden", "true");
+    help.setAttribute("aria-live", "assertive");
+    help.tabIndex = -1;
+
+    help.innerHTML += HELP_TEXT;
+
+    howTo.appendChild(help);
+
+    helper.addEventListener("click", toggleHelp, false);
+
+    header.appendChild(helper)
+
+    document.body.insertBefore(howTo, document.querySelector("main"));
+  })();
+
+  (function initToggle() {
+		toggle.type = "button";
+		toggle.id = "toggle";
+		toggle.className = "checkAll";
+		toggle.innerHTML = "Expand all details";
+		header.appendChild(toggle);
+  })();
+  
   (function initCheckboxes() {
     for (var i = 0; i < count; i++) {
       var box = boxes[i];
@@ -244,37 +296,6 @@ r(function () {
       wrapper.insertBefore(button, firstLabel);
     };
   })();
-
-  (function initHelp() {
-    howTo.id = "how-to";
-
-    helper.type = "button";
-    helper.className = "helper";
-    helper.id = "helper";
-    helper.innerHTML = "Help";
-
-    howTo.appendChild(helper);
-
-    help.classList.add("help-content", "hidden");
-    help.id = "help";
-    help.setAttribute("aria-hidden", "true");
-    help.setAttribute("aria-live", "assertive");
-    help.innerHTML = HELP_TEXT;
-
-    howTo.appendChild(help);
-
-    helper.addEventListener("click", toggleHelp, false);
-
-    document.body.insertBefore(howTo, document.querySelector("main"));
-  })();
-
-  (function initToggle() {
-		toggle.type = "button";
-		toggle.id = "toggle";
-		toggle.className = "checkAll";
-		toggle.innerHTML = "Expand all details";
-		header.appendChild(toggle);
-	})();
 
   // Event Listeners 
 
@@ -321,24 +342,42 @@ r(function () {
   });
 
   if (isFirefox) {
-    document.addEventListener("keyup", keyboardHandler, false);
-  } else {
-    document.addEventListener("keydown", keyboardHandler, false);
-  }
+    document.addEventListener("keyup", lolFirefox, false);
+  } 
+  document.addEventListener("keydown", keyboardHandler, false);
+
+  function lolFirefox(e) {
+    var active = document.activeElement;
+    var isCheckbox = (active.type === "checkbox");
+    var pressSpacebar = (e.key === "Spacebar" || e.keyCode === 32);
+
+    if (isCheckbox && pressSpacebar) {
+      e.preventDefault();
+    }
+  };
 
   function keyboardHandler(e) {
     var active = document.activeElement;
     var isCheckbox = (active.type === "checkbox");
+    var isHelperOpen = (active.classList.contains("helper") && active.classList.contains("open"));
+    var pressTab = (e.key === "Tab" || e.keyCode === 9); 
     var pressEnter = (e.key === "Enter" || e.keyCode === 13);
     var pressEscape = (e.key === "Escape" || e.keyCode === 27);
     var pressSpacebar = (e.key === "Spacebar" || e.keyCode === 32);
 
     if (pressEscape) {
       e.preventDefault();
-      resetChecklist();
-      if (isFirefox) {
-        active.blur();
-      };
+      e.stopImmediatePropagation();
+      if (isHelperOpen) {
+        toggleHelp();
+      } else {
+        resetChecklist();
+        if (isFirefox) {
+          active.blur();
+        };
+      }
+    } else if (isHelperOpen && pressTab) {
+      e.preventDefault();
     } else if (isCheckbox && pressEnter) {
       e.preventDefault();
       var updateChange = new Event("change");
