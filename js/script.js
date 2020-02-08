@@ -400,25 +400,25 @@ r(function () {
   };
 
   toggle.addEventListener("click", function (e) {
-		e.preventDefault();
-		this.classList.toggle("toggleActive");
-		if (this.classList.contains("toggleActive")) {
-			this.innerHTML = "Collapse all details";
-			for (var i = 0; i < details.length; i++) {
-				var detail = details[i];
-				detail.classList.remove("hidden");
-				detail.previousElementSibling.classList.add("open");
-				detail.setAttribute("aria-hidden", "false");
-			};
-		} else {
-			this.innerHTML = "Expand all details";
-			for (var i = 0; i < details.length; i++) {
-				var detail = details[i];
-				detail.classList.add("hidden");
-				detail.previousElementSibling.classList.remove("open");
-				detail.setAttribute("aria-hidden", "true");
-			};
-		};
-	});
+    e.preventDefault();
+    this.classList.toggle("toggleActive");
+    if (this.classList.contains("toggleActive")) {
+      this.innerHTML = "Collapse all details";
+      for (var i = 0; i < details.length; i++) {
+        var detail = details[i];
+        detail.classList.remove("hidden");
+        detail.previousElementSibling.classList.add("open");
+        detail.setAttribute("aria-hidden", "false");
+      };
+    } else {
+      this.innerHTML = "Expand all details";
+      for (var i = 0; i < details.length; i++) {
+        var detail = details[i];
+        detail.classList.add("hidden");
+        detail.previousElementSibling.classList.remove("open");
+        detail.setAttribute("aria-hidden", "true");
+      };
+    };
+  });
 });
 function r(f) { /in/.test(document.readyState) ? setTimeout('r(' + f + ')', 9) : f() }
