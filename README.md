@@ -8,16 +8,18 @@ A progressive web app to help you design eBooks
 
 **If you’re using a mouse/touch:**
 
-- click the checkbox to check
-- click the label to display details
-- click reset to… reset the checklist
+- click the “Expand/Collapse button” to toggle all details;
+- click the label to display details;
+- click the checkbox to check;
+- click the “Skip Section” button if the section doesn’t apply;
+- click reset to… reset the checklist.
 
 **If you’re using a keyboard:**
 
-- press “tab” to navigate items
-- press “enter” to check
-- press “space” to display details
-- press “esc” to reset the checklist
+- press “tab” to navigate items;
+- press “enter” to check;
+- press “space” to display details;
+- press “esc” to reset the checklist.
 
 Don’t worry, your checklist is autosaved: you can close this website, your current checklist will be retrieved when reopened.
 
@@ -31,7 +33,7 @@ Thanks to service workers, it will even work offline on Android, Chrome, Opera o
 
 The eBook Design Checklist is part of the Blitz Project. It’s a progressive web app which aim is to help you design your eBooks.
 
-It is currently in v.2.0.1 and available [on this page](https://friendsofepub.github.io/eBookDesignChecklist/).
+It is available [on this page](https://friendsofepub.github.io/eBookDesignChecklist/).
 
 ## Details
 
