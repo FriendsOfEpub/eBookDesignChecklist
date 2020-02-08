@@ -1,6 +1,6 @@
 {
   "name": "blitz-checklist",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A template repository to make checklist web apps",
   "main": "index.html",
   "scripts": {

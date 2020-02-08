@@ -2,7 +2,7 @@
 
 var APP_PREFIX = "blitzChecklist_";
 var SCOPE = "/blitz-checklist/";
-var VERSION = "v1_0_1";
+var VERSION = "v1_0_2";
 var CACHE_NAME = APP_PREFIX + VERSION;
 var URLS = [
   SCOPE,
