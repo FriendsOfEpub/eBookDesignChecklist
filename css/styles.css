@@ -193,10 +193,18 @@ form section:nth-child(even) {
 }
 
 .help-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.95);
   color: #FEFEFE;
   padding: 9.6rem 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 footer {
@@ -376,8 +384,31 @@ input:focus+.checker {
   transition: all 500ms;
 }
 
-.checkAll,
 .helper {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 20;
+  color: inherit;
+  border: 0.2rem solid currentColor;
+  border-radius: 0.3rem;
+  transition: all 350ms;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 1;
+  box-sizing: border-box;
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.helper.open {
+  color: #FEFEFE;
+}
+
+.checkAll {
   margin: 5.4rem auto;
   color: inherit;
   border: 0.2rem solid currentColor;

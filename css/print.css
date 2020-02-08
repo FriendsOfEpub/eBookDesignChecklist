@@ -98,6 +98,8 @@ label {
   border-radius: 0;
 }
 
-input:checked + .checker {
-  background-color: none !important;
+input:checked+.checker {
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-color: black !important;
 }

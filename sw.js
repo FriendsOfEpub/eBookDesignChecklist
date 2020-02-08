@@ -2,7 +2,7 @@
 
 var APP_PREFIX = "blitzDesign_";
 var SCOPE = "/eBookDesignChecklist/";
-var VERSION = "v2_0_1";
+var VERSION = "v2_1_0";
 var CACHE_NAME = APP_PREFIX + VERSION;
 var URLS = [
   SCOPE,

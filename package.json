@@ -1,6 +1,6 @@
 {
   "name": "blitz-design",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A progressive web app to help you design eBooks",
   "main": "index.html",
   "scripts": {
