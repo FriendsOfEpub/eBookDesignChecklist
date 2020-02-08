@@ -85,5 +85,7 @@ label {
 }
 
 input:checked+.checker {
-  background-color: none !important;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-color: black !important;
 }
