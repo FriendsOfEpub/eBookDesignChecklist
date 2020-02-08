@@ -6,17 +6,18 @@ r(function () {
   var HELP_TEXT = `<div class='wrapper'>
     <p>If you’re using a mouse or a finger:</p>
     <ul>
-      <li>click the checkbox to check;</li>
+      <li>click the “Expand/Collapse button” to toggle all details;</li>
       <li>click the label to display details;</li>
+      <li>click the checkbox to check;</li>
       <li>click the “Skip Section” button if the section doesn’t apply;</li>
-      <li>click reset to… reset the checklist;</li>
+      <li>click reset to… reset the checklist.</li>
     </ul>
     <p>If you’re using a keyboard:</p>
     <ul>
       <li>press “tab” to navigate items;</li>
       <li>press “enter” to check;</li>
       <li>press “space” to display details;</li>
-      <li>press “esc” to reset the checklist;</li>
+      <li>press “esc” to reset the checklist.</li>
     </ul>
     <p>Don’t worry, your checklist is autosaved: you can close this page, your current checklist will be retrieved when reopened.</p>
     <p>Finally, this is a Progressive Web App you can install on platforms and browsers which support it. It will even work offline if Service Workers are supported.</p>
@@ -31,6 +32,9 @@ r(function () {
   var howTo = document.createElement("section");
   var helper = document.createElement("button");
   var help = document.createElement("div");
+
+  var header = document.querySelector("header");
+  var toggle = document.createElement("button");
 
   var skippable = document.querySelectorAll("[data-skippable='true']");
 
@@ -127,6 +131,19 @@ r(function () {
   };
 
   function toggleHelp() {
+    if (helper.classList.contains("open")) {
+      helper.innerHTML = "?";
+      helper.setAttribute("aria-label", "Help");
+      helper.setAttribute("title", "Help");
+      document.body.style.overflow = "auto";
+    } else {
+      helper.innerHTML = "×";
+      helper.setAttribute("aria-label", "Close help");
+      helper.setAttribute("title", "Close help");
+      helper.focus();
+      document.body.style.overflow = "hidden";
+    }
+    helper.classList.toggle("open");
     help.classList.toggle("hidden");
     toggleAria(help);
   };
@@ -210,6 +227,45 @@ r(function () {
     };
   })();
 
+  (function initHelp() {
+    howTo.id = "how-to";
+
+    helper.type = "button";
+    helper.className = "helper";
+    helper.id = "helper";
+    helper.innerHTML = "?";
+    helper.setAttribute("aria-label", "Help");
+    helper.setAttribute("title", "Help");
+    helper.setAttribute("aria-haspopup", "help");
+    helper.setAttribute("aria-controls", "help");
+
+    help.classList.add("help-content", "hidden");
+    help.id = "help";
+    help.setAttribute("role", "dialog");
+    help.setAttribute("aria-modal", "true");
+    help.setAttribute("aria-hidden", "true");
+    help.setAttribute("aria-live", "assertive");
+    help.tabIndex = -1;
+
+    help.innerHTML += HELP_TEXT;
+
+    howTo.appendChild(help);
+
+    helper.addEventListener("click", toggleHelp, false);
+
+    header.appendChild(helper)
+
+    document.body.insertBefore(howTo, document.querySelector("main"));
+  })();
+
+  (function initToggle() {
+		toggle.type = "button";
+		toggle.id = "toggle";
+		toggle.className = "checkAll";
+		toggle.innerHTML = "Expand all details";
+		header.appendChild(toggle);
+  })();
+  
   (function initCheckboxes() {
     for (var i = 0; i < count; i++) {
       var box = boxes[i];
@@ -239,29 +295,6 @@ r(function () {
       var firstLabel = wrapper.querySelector("label");
       wrapper.insertBefore(button, firstLabel);
     };
-  })();
-
-  (function initHelp() {
-    howTo.id = "how-to";
-
-    helper.type = "button";
-    helper.className = "helper";
-    helper.id = "helper";
-    helper.innerHTML = "Help";
-
-    howTo.appendChild(helper);
-
-    help.classList.add("help-content", "hidden");
-    help.id = "help";
-    help.setAttribute("aria-hidden", "true");
-    help.setAttribute("aria-live", "assertive");
-    help.innerHTML = HELP_TEXT;
-
-    howTo.appendChild(help);
-
-    helper.addEventListener("click", toggleHelp, false);
-
-    document.body.insertBefore(howTo, document.querySelector("main"));
   })();
 
   // Event Listeners 
@@ -309,24 +342,42 @@ r(function () {
   });
 
   if (isFirefox) {
-    document.addEventListener("keyup", keyboardHandler, false);
-  } else {
-    document.addEventListener("keydown", keyboardHandler, false);
-  }
+    document.addEventListener("keyup", lolFirefox, false);
+  } 
+  document.addEventListener("keydown", keyboardHandler, false);
+
+  function lolFirefox(e) {
+    var active = document.activeElement;
+    var isCheckbox = (active.type === "checkbox");
+    var pressSpacebar = (e.key === "Spacebar" || e.keyCode === 32);
+
+    if (isCheckbox && pressSpacebar) {
+      e.preventDefault();
+    }
+  };
 
   function keyboardHandler(e) {
     var active = document.activeElement;
     var isCheckbox = (active.type === "checkbox");
+    var isHelperOpen = (active.classList.contains("helper") && active.classList.contains("open"));
+    var pressTab = (e.key === "Tab" || e.keyCode === 9); 
     var pressEnter = (e.key === "Enter" || e.keyCode === 13);
     var pressEscape = (e.key === "Escape" || e.keyCode === 27);
     var pressSpacebar = (e.key === "Spacebar" || e.keyCode === 32);
 
     if (pressEscape) {
       e.preventDefault();
-      resetChecklist();
-      if (isFirefox) {
-        active.blur();
-      };
+      e.stopImmediatePropagation();
+      if (isHelperOpen) {
+        toggleHelp();
+      } else {
+        resetChecklist();
+        if (isFirefox) {
+          active.blur();
+        };
+      }
+    } else if (isHelperOpen && pressTab) {
+      e.preventDefault();
     } else if (isCheckbox && pressEnter) {
       e.preventDefault();
       var updateChange = new Event("change");
@@ -347,5 +398,27 @@ r(function () {
       return;
     }
   };
+
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    this.classList.toggle("toggleActive");
+    if (this.classList.contains("toggleActive")) {
+      this.innerHTML = "Collapse all details";
+      for (var i = 0; i < details.length; i++) {
+        var detail = details[i];
+        detail.classList.remove("hidden");
+        detail.previousElementSibling.classList.add("open");
+        detail.setAttribute("aria-hidden", "false");
+      };
+    } else {
+      this.innerHTML = "Expand all details";
+      for (var i = 0; i < details.length; i++) {
+        var detail = details[i];
+        detail.classList.add("hidden");
+        detail.previousElementSibling.classList.remove("open");
+        detail.setAttribute("aria-hidden", "true");
+      };
+    };
+  });
 });
 function r(f) { /in/.test(document.readyState) ? setTimeout('r(' + f + ')', 9) : f() }
