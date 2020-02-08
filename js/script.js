@@ -259,13 +259,13 @@ r(function () {
   })();
 
   (function initToggle() {
-		toggle.type = "button";
-		toggle.id = "toggle";
-		toggle.className = "checkAll";
-		toggle.innerHTML = "Expand all details";
-		header.appendChild(toggle);
+    toggle.type = "button";
+    toggle.id = "toggle";
+    toggle.className = "checkAll";
+    toggle.innerHTML = "Expand all details";
+    header.appendChild(toggle);
   })();
-  
+
   (function initCheckboxes() {
     for (var i = 0; i < count; i++) {
       var box = boxes[i];
@@ -343,7 +343,7 @@ r(function () {
 
   if (isFirefox) {
     document.addEventListener("keyup", lolFirefox, false);
-  } 
+  }
   document.addEventListener("keydown", keyboardHandler, false);
 
   function lolFirefox(e) {
@@ -360,7 +360,7 @@ r(function () {
     var active = document.activeElement;
     var isCheckbox = (active.type === "checkbox");
     var isHelperOpen = (active.classList.contains("helper") && active.classList.contains("open"));
-    var pressTab = (e.key === "Tab" || e.keyCode === 9); 
+    var pressTab = (e.key === "Tab" || e.keyCode === 9);
     var pressEnter = (e.key === "Enter" || e.keyCode === 13);
     var pressEscape = (e.key === "Escape" || e.keyCode === 27);
     var pressSpacebar = (e.key === "Spacebar" || e.keyCode === 32);
